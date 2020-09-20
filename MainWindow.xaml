@@ -1,0 +1,35 @@
+﻿<Window x:Class="TimeBack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimeBack"
+        mc:Ignorable="d"
+        Title="Timers, clocks, and alarms" Height="500" Width="440">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="Menu" VerticalAlignment="Center" Height="20">
+            <MenuItem Header="Timers">
+                <MenuItem Header="New timer" Click="MenuItem_Click"/>
+                <MenuItem Header="Reset all timers" Click="MenuItem_Click_1"/>
+            </MenuItem>
+            <MenuItem Header="StopAlarm" Click="StopPlayer"/>
+        </Menu>
+        <ScrollViewer Grid.Row="1">
+            <DataGrid x:Name="timerTable" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Width="80" Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Start time" Width="90" Binding="{Binding Path=TimeStart}"/>
+                    <DataGridTextColumn Header="End time" Width="100" Binding="{Binding Path=TimeEnd}"/>
+                    <DataGridTextColumn Header="Remain time" Width="120" Binding="{Binding Path=Remain}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+    </Grid>
+</Window>
